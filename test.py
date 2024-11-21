@@ -32,3 +32,14 @@ def is_prime(number):
         if number % i == 0:
             return False
     return True
+
+def primes_in_range(a, b):
+    if not isinstance(a, int) or not isinstance(b, int) or a >= b:
+        raise ValueError("Invalid input. a and b must be integers and a must be less than b.")
+    
+    primes = []
+    for num in range(a, b+1):
+        if is_prime(num):
+            primes.append(num)
+    
+    return primes
