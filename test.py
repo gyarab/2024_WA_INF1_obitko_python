@@ -24,10 +24,10 @@ def fibonacci(n):
         return fib_sequence[n]  
     
 def is_prime(number):
-    if not isinstance(number, int) or number < 0:
+    if not isinstance(number, int) or number <= 0:
         raise ValueError("Invalid input. Number must be a non-negative integer.")
-    if number < 1:
-        raise ValueError("Invalid input. Number must be greater than or equal to 2.")
+    if number < 2:
+        return False
     for i in range(2, int(number**0.5) + 1):
         if number % i == 0:
             return False
