@@ -1,20 +1,20 @@
 class InputError(Exception):
     pass
 
-def fibonacci(n):
-    if not isinstance(n, int) or n < 0:
-        raise InputError("Invalid input. Please provide a positive integer.")
-    elif n == 1:
+def fibonacci(index):
+    if not isinstance(index, int) or index < 0:
+        raise InputError("Invalid input. Please provide a non-negative integer.")
+    elif index == 0:
         return 0
-    elif n == 2:
+    elif index == 1:
         return 1
     else:
         fib_sequence = [0, 1]
-        for i in range(2, n):
+        for i in range(2, index + 1):
             fib_sequence.append(fib_sequence[i-1] + fib_sequence[i-2])
-        return fib_sequence[-1]
+        return fib_sequence[index]
 
 try:
-    print(fibonacci(10))
+    print(fibonacci(0))  
 except InputError as e:
     print(e)
