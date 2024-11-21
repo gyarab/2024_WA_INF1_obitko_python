@@ -2,7 +2,7 @@ class InputError(Exception):
     pass
 
 def fibonacci(n):
-    if not isinstance(n, int) or n <= 0:
+    if not isinstance(n, int) or n < 0:
         raise InputError("Invalid input. Please provide a positive integer.")
     elif n == 1:
         return 0
