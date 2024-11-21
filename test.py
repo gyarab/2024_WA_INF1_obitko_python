@@ -34,7 +34,7 @@ def is_prime(number):
     return True
 
 def primes_in_range(a, b):
-    if not isinstance(a, int) or not isinstance(b, int) or a > b:
+    if not isinstance(a, int) or not isinstance(b, int) or b < a:
         raise ValueError("Invalid input. a and b must be integers and a must be less than or equal to b.")
     
     primes = []
