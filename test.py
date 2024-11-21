@@ -23,3 +23,12 @@ def fibonacci(n):
             fib_sequence.append(fib_sequence[i-1] + fib_sequence[i-2])
         return fib_sequence[n]  
     
+def is_prime(number):
+    if not isinstance(number, int):
+        raise ValueError("Invalid input. Number must be an integer.")
+    if number < 2:
+        return False
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
