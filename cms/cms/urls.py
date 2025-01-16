@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from content.views import articles
+from django.contrib import admin
+from django.urls import path, include
+from content.views import articles, article_info
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('articles/', articles),
+    path('article/<int:article_id>/', article_info),
 ]
