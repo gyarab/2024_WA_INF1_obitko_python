@@ -1,0 +1,15 @@
+{% extends 'web/layout.html' %}
+
+{% block title %}Songs {% endblock %}
+
+{% block content %}
+<h1>All songs</h1>
+<a href="{% url 'index' %}">Go back</a><br>
+<a href="{% url 'upload_song' %}">Upload a song</a>
+
+<ul>
+    {% for song in song_list %}
+    <li>{{ song }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
