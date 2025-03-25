@@ -25,8 +25,8 @@ def upload_song(request):
 
     return render(request, "web/upload_song.html", {"form": form})
 
-def song_detail(request, song_id):
-    song = Song.objects.get(id=song_id)
+def song_detail(request, slug):
+    song = get_object_or_404(Song, slug=slug)
     return render(request, "web/song_detail.html", {
         "song": song 
     })
