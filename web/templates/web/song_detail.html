@@ -1,10 +1,10 @@
 {% extends 'web/layout.html' %}
 
-{% title %} song.title {% endblock %}
+{% block title %} song.title {% endblock %}
 
 {% block content %}
 
 <h1>{{ song.title }}</h1>
-<p>{{ song.content|safe }}</p>
+<p>{{ song.content }}</p>
 
 {% endblock %}
