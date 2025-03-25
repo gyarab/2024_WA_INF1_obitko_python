@@ -1,11 +1,13 @@
 # WA - Django
 
+Aplikace na nahrávání písniček ve formátu ChordsPro (zatím úplně základní verze, akordy se zatím ani nerendrují do HTML). 
+
 ## How to run: 
-(optional) 
-Pro rychlejší spouštění uděláme soubor runserver executable
+Pro rychlejší spouštění mám runserver executable
 
 ```
-chmod +x runserver 
+./runserver
 ```
+
 
 
