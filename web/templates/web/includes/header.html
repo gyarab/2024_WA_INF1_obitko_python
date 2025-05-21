@@ -3,3 +3,13 @@
 <a href="{% url 'authors' %}">Authors</a>
 <a href="{% url 'upload_song' %}">Upload song</a>
 <a href="{% url 'create_author' %}">Create author</a>
+{% if user.is_authenticated %}
+<form action="{% url 'logout' %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Odhlásit se</button>
+</form>
+
+{% else %}
+<a href="{% url 'login' %}">Login</a>
+<a href="{% url 'register' %}">Register</a>
+{% endif %}

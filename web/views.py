@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Song, Author
 from .forms import SongUploadForm, CreateAuthorForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+
+
 # Create your views here.
 
 
@@ -13,6 +17,7 @@ def songs(request):
         "song_list": song_list
     })
 
+@login_required
 def upload_song(request):
     if request.method == "POST":
         form = SongUploadForm(request.POST, request.FILES)
@@ -43,6 +48,7 @@ def author_detail(request, slug):
         "author": author
     })
 
+@login_required
 def crate_author(request):
     if request.method == "POST":
         form = CreateAuthorForm(request.POST)
@@ -53,3 +59,16 @@ def crate_author(request):
         form = CreateAuthorForm()
 
     return render(request, "web/create_author.html", {"form": form})
+
+def home(request):
+    return render(request, 'home.html')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/register.html', {'form': form})
